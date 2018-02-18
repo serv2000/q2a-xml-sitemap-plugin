@@ -190,7 +190,7 @@ $sitemap_dir_errors= $this->check_sitemap_dir();
                         $questionSitemapNumber=1;
 			while (1) {
 				$questions = qa_db_read_all_assoc(qa_db_query_sub(
-					"SELECT postid, title, hotness FROM ^posts WHERE postid>=# AND type='Q' ORDER BY postid LIMIT 1",
+					"SELECT postid, title, hotness FROM ^posts WHERE postid>=# AND type='Q' ORDER BY postid LIMIT 50000",
 					$nextpostid
 				));
                                $mamString=null;
@@ -228,7 +228,7 @@ $sitemap_dir_errors= $this->check_sitemap_dir();
             $mamString=null;
 
 				$users = qa_db_read_all_assoc(qa_db_query_sub(
-					"SELECT userid, handle FROM ^users WHERE userid>=# ORDER BY userid LIMIT 100",
+					"SELECT userid, handle FROM ^users WHERE userid>=# ORDER BY userid LIMIT 50000",
 					$nextuserid
 				));
 
@@ -259,7 +259,7 @@ $sitemap_dir_errors= $this->check_sitemap_dir();
                 $tagSitemapNumber=1;
 			while (1) {
 				$tagwords = qa_db_read_all_assoc(qa_db_query_sub(
-					"SELECT wordid, word, tagcount FROM ^words WHERE wordid>=# AND tagcount>0 ORDER BY wordid LIMIT 100",
+					"SELECT wordid, word, tagcount FROM ^words WHERE wordid>=# AND tagcount>0 ORDER BY wordid LIMIT 50000",
 					$nextwordid
 				));
 $mamString=null;
@@ -321,7 +321,7 @@ $categoriesPagesSitemapNumber=1;
 			while (1) { // only find categories with a child
 				$categories = qa_db_read_all_assoc(qa_db_query_sub(
 					"SELECT parent.categoryid, parent.backpath FROM ^categories AS parent " .
-					"JOIN ^categories AS child ON child.parentid=parent.categoryid WHERE parent.categoryid>=# GROUP BY parent.categoryid LIMIT 100",
+					"JOIN ^categories AS child ON child.parentid=parent.categoryid WHERE parent.categoryid>=# GROUP BY parent.categoryid LIMIT 50000",
 					$nextcategoryid
 				));
 $mamString=null;
