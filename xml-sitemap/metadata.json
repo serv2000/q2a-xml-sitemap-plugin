@@ -1,10 +1,10 @@
 {
-	"name": "XML Sitemap",
+	"name": "IMPROVED XML Sitemap",
 	"description": "Generates sitemap.xml file for submission to search engines",
-	"version": "1.1.1",
-	"date": "2011-12-06",
-	"author": "Question2Answer",
-	"author_uri": "http://www.question2answer.org",
+	"version": "1.0",
+	"date": "19/feb/2018",
+	"author": "abdullah shalaan",
+	"author_uri": "https://github.com/openserv2000/q2a-xml-sitemap-plugin",
 	"license": "GPLv2",
 	"min_q2a": "1.5",
 	"load_order": "after_db_init"

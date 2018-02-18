@@ -21,19 +21,19 @@
 */
 
 /*
-	Plugin Name: XML Sitemap
+	Plugin Name:IMPROVED XML Sitemap
 	Plugin URI:
 	Plugin Description: Generates sitemap.xml file for submission to search engines
-	Plugin Version: 1.1.1
-	Plugin Date: 2011-12-06
-	Plugin Author: Question2Answer
-	Plugin Author URI: http://www.question2answer.org/
+	Plugin Version: 1.0
+	Plugin Date: 19/feb/2018
+	Plugin Author: abdullah shalaan
+	Plugin Author URI: https://github.com/openserv2000/q2a-xml-sitemap-plugin
 	Plugin License: GPLv2
 	Plugin Minimum Question2Answer Version: 1.5
-	Plugin Update Check URI:
+	Plugin Update Check URI:https://github.com/openserv2000/q2a-xml-sitemap-plugin
 */
 
-
+ 
 if (!defined('QA_VERSION')) { // don't allow this page to be requested directly from browser
 	header('Location: ../../');
 	exit;

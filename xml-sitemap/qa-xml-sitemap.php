@@ -1,5 +1,9 @@
 <?php
 /*
+ * Developed by Abdullah shalaan
+ * abdullah.shalaan@gmail.com  
+ * 
+ * forked from the origin repo
 	Question2Answer by Gideon Greenspan and contributors
 	http://www.question2answer.org/
 
