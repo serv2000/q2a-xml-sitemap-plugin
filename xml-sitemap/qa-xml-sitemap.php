@@ -12,12 +12,12 @@
 class qa_xml_sitemap
 {
     private function check_sitemap_dir(){
-        
-                if(strlen($sitemap_dir)==0)
+                $sitemap_dir=qa_opt('xml_sitemap_directory');
+                if(strlen($sitemap_dir)==0){
                                  qa_opt('xml_sitemap_directory',"sitemaps");
 
-        $sitemap_dir=qa_opt('xml_sitemap_directory');
-   
+        $sitemap_dir="sitemaps";
+                }
                 $directory=QA_BASE_DIR.$sitemap_dir;
                 $sitemap_dir_errors=[];
                 if(!is_dir($directory)){
@@ -365,7 +365,7 @@ $mamString=null;
                   
                         echo $sitemapListString;
                         //print_r($sitemaplist);
-
+exit;
 		return null;
 	}
 
