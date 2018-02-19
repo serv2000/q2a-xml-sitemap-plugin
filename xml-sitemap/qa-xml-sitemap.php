@@ -329,7 +329,7 @@ $mamString=null;
 					break;
 
 				foreach ($categories as $category) {
-					$mamString.=$this->sitemap_output('categories/' . implode('/', array_reverse(explode('/', $category['backpath']))), 0.5);
+					$mamString.=$this->sitemap_output('questions/' . implode('/', array_reverse(explode('/', $category['backpath']))), 0.5);
 					$nextcategoryid = max($nextcategoryid, $category['categoryid'] + 1);
 				}
  $mapurl=$SitemapsDIr.'/categoriesPages-'.$categoriesPagesSitemapNumber.'.xml';
