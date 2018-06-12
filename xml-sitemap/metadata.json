@@ -1,8 +1,8 @@
 {
 	"name": "IMPROVED XML Sitemap",
 	"description": "Generates sitemap.xml file for submission to search engines",
-	"version": "1.0",
-	"date": "19/feb/2018",
+	"version": "1.1",
+	"date": "12/jun/2018",
 	"author": "abdullah shalaan",
 	"author_uri": "https://github.com/openserv2000/q2a-xml-sitemap-plugin",
 	"license": "GPLv2",

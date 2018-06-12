@@ -12,12 +12,13 @@
 class qa_xml_sitemap
 {
     private function check_sitemap_dir(){
-                $sitemap_dir=qa_opt('xml_sitemap_directory');
-                if(strlen($sitemap_dir)==0){
+               $sitemap_dir=qa_opt('xml_sitemap_directory');
+ 
+                if(strlen($sitemap_dir)==0)
                                  qa_opt('xml_sitemap_directory',"sitemaps");
 
-        $sitemap_dir="sitemaps";
-                }
+        $sitemap_dir=qa_opt('xml_sitemap_directory');
+   
                 $directory=QA_BASE_DIR.$sitemap_dir;
                 $sitemap_dir_errors=[];
                 if(!is_dir($directory)){
@@ -56,7 +57,10 @@ class qa_xml_sitemap
 		if (qa_clicked('xml_sitemap_save_button')) {
 			qa_opt('xml_sitemap_show_questions', (int)qa_post_text('xml_sitemap_show_questions_field'));
 			qa_opt('xml_sitemap_directory', qa_post_text('xml_sitemap_directory'));
-
+                        if(is_numeric(qa_post_text('xml_sitemap_cachetime'))){
+                        qa_opt('xml_sitemap_cachetime',qa_post_text('xml_sitemap_cachetime'));    
+                        }
+                        
 			if (!QA_FINAL_EXTERNAL_USERS)
 				qa_opt('xml_sitemap_show_users', (int)qa_post_text('xml_sitemap_show_users_field'));
 
@@ -82,11 +86,17 @@ $sitemap_dir_errors= $this->check_sitemap_dir();
 			'ok' => $saved ? 'XML sitemap settings saved' : null,
 
 			'fields' => array(
-		array(
+                                array(
 					'label' => 'sitemap directory:',
 					'value' => qa_html(qa_opt('xml_sitemap_directory')),
 					'tags' => 'name="xml_sitemap_directory"',
 					'error' => (count($sitemap_dir_errors)==0) ? null : implode('<br>', $sitemap_dir_errors),
+				),
+                                                array(
+					'label' => 'cache sitemaps and sitemap index <br>set the cache time in seconds<br> ex : 1 hr = 3600 , 1 day=86400 <br> if u want to disable cache set it to 0:',
+					'value' => qa_html(qa_opt('xml_sitemap_cachetime')),
+					'tags' => 'name="xml_sitemap_cachetime"',
+					'error' => (qa_opt('xml_sitemap_cachetime')) ? null : "please set cache time more than 0 to activate sitemap caching",
 				),	
                             'questions' => array(
 					'label' => 'Include question pages',
@@ -169,7 +179,19 @@ $sitemap_dir_errors= $this->check_sitemap_dir();
             }
 		@ini_set('display_errors', FALSE); // we don't want to show PHP errors inside XML
             $SitemapsDIr=qa_opt('xml_sitemap_directory');
+            $mapIndexFile="mapindexs.xml";
             $siteMapFullDir=QA_BASE_DIR.$SitemapsDIr;
+            $siteMapCreationTime= filemtime($siteMapFullDir.DIRECTORY_SEPARATOR.$mapIndexFile);
+            $currentTime=time();
+      
+            if(($currentTime-$siteMapCreationTime)<qa_opt('xml_sitemap_cachetime')){
+                $mapIndexFileContent= file_get_contents($siteMapFullDir.DIRECTORY_SEPARATOR.$mapIndexFile);
+                                       header( "Content-Type: application/xml" );
+
+                echo $mapIndexFileContent;
+                exit; 
+            }
+           
             $sitemaplist=[]    ;
             $sitemapHead='<?xml version="1.0" encoding="UTF-8"?>
 
@@ -352,14 +374,14 @@ $mamString=null;
         foreach ($sitemaplist as $map) {
                             $sitemapListString.= "
         <sitemap>
-                <loc>".qa_opt('site_url')."/".$map."</loc>
+                <loc>".qa_opt('site_url').$map."</loc>
                 <lastmod>" . date('Y-m-d\TH:i:s+00:00') ."</lastmod>
         </sitemap>
         ";
 
                 }
                         $sitemapListString.="</sitemapindex>";
-                  $sitemapindex=$SitemapsDIr.'/mapindexs.xml';
+                  $sitemapindex=$SitemapsDIr.'/'.$mapIndexFile;
                   file_put_contents($sitemapindex, $sitemapListString);
                         header( "Content-Type: application/xml" );
                   
