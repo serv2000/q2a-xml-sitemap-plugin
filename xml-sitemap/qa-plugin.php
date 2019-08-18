@@ -6,10 +6,10 @@
 	Plugin Version: 1.0
 	Plugin Date: 19/feb/2018
 	Plugin Author: abdullah shalaan
-	Plugin Author URI: https://github.com/openserv2000/q2a-xml-sitemap-plugin
+	Plugin Author URI: https://github.com/serv2000/q2a-xml-sitemap-plugin
 	Plugin License: GPLv2
 	Plugin Minimum Question2Answer Version: 1.5
-	Plugin Update Check URI:https://github.com/openserv2000/q2a-xml-sitemap-plugin
+	Plugin Update Check URI:https://github.com/serv2000/q2a-xml-sitemap-plugin
 */
 
  
