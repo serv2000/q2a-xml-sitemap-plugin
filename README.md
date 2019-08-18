@@ -9,5 +9,5 @@ replace my plugin with the origin
 by default plugin will set /sitemaps as the site map directory or set it from the plugin option
 if the folder dosen't exist plugin will try to create it 
 you should ensure that the sitemap directory is writable  (the plugin will tell you if it isn't)
-then open the sitemap url from ur browser like this https://ayuda.site/sitemap.xml
-now sitemaps created and sitemaps index will be provided to the browser and will cached to "sitemap directory"/mapindexs.xml like this https://ayuda.site/sitemaps/mapindexs.xml
+then open the sitemap url from ur browser like this https://arabhelp.org/sitemap.xml
+now sitemaps created and sitemaps index will be provided to the browser and will cached to "sitemap directory"/mapindexs.xml like this https://arabhelp.org/sitemaps/mapindexs.xml
