@@ -10,4 +10,4 @@ by default plugin will set /sitemaps as the site map directory or set it from th
 if the folder dosen't exist plugin will try to create it 
 you should ensure that the sitemap directory is writable  (the plugin will tell you if it isn't)
 then open the sitemap url from ur browser like this https://help4arab.com/sitemap.xml
-now sitemaps created and sitemaps index will be provided to the browser and will cached to "sitemap directory"/mapindexs.xml like this https://help4arab.org/sitemaps/mapindexs.xml
+now sitemaps created and sitemaps index will be provided to the browser and will cached to "sitemap directory"/mapindexs.xml like this https://help4arab.com/sitemaps/mapindexs.xml
